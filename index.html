@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🚀 Site Web Vitrine qui VEND – Packs Clés en Main | Maroc</title>
+  <meta name="description" content="Création de site web vitrine professionnel au Maroc. 3 packs clés en main : Standard, Pro, Premium. SEO, réseaux sociaux, hébergement inclus. Devis sous 24h.">
+  <meta name="keywords" content="site web maroc, création site vitrine, site web pas cher, avito, freelance web, SEO maroc, développement web maroc">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0c14;
+      --surface: #16161f;
+      --surface2: #1e1e2a;
+      --border: #2a2a3a;
+      --gold: #d4a843;
+      --gold-light: #f0d070;
+      --text: #f0eff8;
+      --muted: #8a8a9a;
+      --accent: #5b8dff;
+      --green: #34d399;
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 50px 20px 30px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(212,168,67,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(212,168,67,0.15);
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 30px;
+      border: 1px solid rgba(212,168,67,0.3);
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    h1 .gold { color: var(--gold); }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 550px;
+      margin: 0 auto 24px;
+    }
+
+    .hero .cta {
+      display: inline-block;
+      background: var(--gold);
+      color: #1a1000;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+
+    .hero .cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,168,67,0.3); }
+
+    .section-title {
+      text-align: center;
+      padding: 40px 20px 10px;
+    }
+
+    .section-title h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 6px;
+    }
+
+    .packs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .pack {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .pack:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    .pack.featured {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, var(--surface) 0%, rgba(212,168,67,0.05) 100%);
+    }
+
+    .pack.featured::before {
+      content: '⭐ PLUS POPULAIRE';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: #1a1000;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 4px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.08em;
+    }
+
+    .pack-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .pack-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .pack-tagline {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+    }
+
+    .pack-price {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .pack-price span {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .pack-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 16px 0;
+    }
+
+    .pack ul {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .pack li {
+      padding: 6px 0;
+      font-size: 0.88rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .pack li::before {
+      content: '✅';
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pack-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .pack-btn:hover { border-color: var(--gold); background: rgba(212,168,67,0.1); }
+
+    .pack.featured .pack-btn {
+      background: var(--gold);
+      color: #1a1000;
+      border-color: var(--gold);
+    }
+
+    .pack.featured .pack-btn:hover {
+      background: var(--gold-light);
+    }
+
+    .trust {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    .trust h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      text-align: left;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+    }
+
+    .trust-item .icon { font-size: 1.2rem; flex-shrink: 0; }
+
+    .cta-section {
+      text-align: center;
+      padding: 40px 20px 60px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-section h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .cta-section p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cta-btn.primary {
+      background: var(--gold);
+      color: #1a1000;
+    }
+
+    .cta-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,168,67,0.3); }
+
+    .cta-btn.secondary {
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .cta-btn.secondary:hover { border-color: var(--gold); }
+
+    .scarcity {
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 16px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 30px 16px 20px; }
+      .packs { padding: 16px; gap: 16px; }
+      .pack { padding: 22px 18px; }
+      .cta-section { padding: 30px 16px 50px; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="badge">🇲🇦 Freelance Web – Maroc</div>
+    <h1>Votre Site Web Vitrine<br>qui <span class="gold">VEND</span></h1>
+    <p>Pas juste un site "en ligne" — un outil de croissance. 3 packs clés en main, adaptés au marché marocain.</p>
+    <a href="#packs" class="cta">Voir les packs →</a>
+  </section>
+
+  <section class="section-title" id="packs">
+    <h2>Choisissez votre pack</h2>
+    <p>Pas de surprise, pas de jargon technique.</p>
+  </section>
+
+  <section class="packs">
+
+    <div class="pack">
+      <div class="pack-icon">🥉</div>
+      <div class="pack-name">Standard</div>
+      <div class="pack-tagline">La Vitrine Essentielle</div>
+      <div class="pack-price">2 900 DHS <span>PACK COMPLET</span></div>
+      <hr class="pack-divider">
+      <ul>
+        <li>Site Vitrine 3 pages (Accueil, Services, Contact)</li>
+        <li>Référencement Local — visible dans votre ville sur Google</li>
+        <li>Facebook, Instagram & Fiche Google My Business optimisés</li>
+        <li>4 Emails Pro : vous@votresociete.ma</li>
+        <li>Design Responsive — impeccable sur mobile et tablette</li>
+        <li>Lancement Publicitaire — config + 2 premiers posts</li>
+        <li>Hébergement & Sécurité inclus</li>
+      </ul>
+      <a href="https://wa.me/212600000000?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Pack%20Standard" class="pack-btn" target="_blank">Choisir ce pack</a>
+    </div>
+
+    <div class="pack featured">
+      <div class="pack-icon">🥈</div>
+      <div class="pack-name">Pro</div>
+      <div class="pack-tagline">La Machine à Leads</div>
+      <div class="pack-price">5 900 DHS <span>PACK COMPLET</span></div>
+      <hr class="pack-divider">
+      <ul>
+        <li>Tout le Pack Standard en mieux…</li>
+        <li>Site Vitrine 8 pages — détaillez vos services</li>
+        <li>SEO National — positionnement sur mots-clés nationaux</li>
+        <li>Gestion Réseaux Sociaux — 4 publications/mois</li>
+        <li>10 Emails Pro pour toute votre équipe</li>
+        <li>Design UX avancé — parcours client fluide</li>
+        <li>Publicité Multicanal — config + 4 posts sponsorisés/mois</li>
+      </ul>
+      <a href="https://wa.me/212600000000?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Pack%20Pro" class="pack-btn" target="_blank">Choisir ce pack</a>
+    </div>
+
+    <div class="pack">
+      <div class="pack-icon">🥇</div>
+      <div class="pack-name">Premium</div>
+      <div class="pack-tagline">L'Empire Digital</div>
+      <div class="pack-price">9 900 DHS <span>PACK COMPLET</span></div>
+      <hr class="pack-divider">
+      <ul>
+        <li>Tout le Pack Pro, puissance 10…</li>
+        <li>Site 20+ pages — vitrine complet ou catalogue</li>
+        <li>SEO Avancé Local + National — domination complète</li>
+        <li>Gestion Réseaux Sociaux Intensifiée — 6 publications/mois</li>
+        <li>Sécurité Maximale — protection renforcée</li>
+        <li>20 Emails Pro pour équipes structurées</li>
+        <li>Design UI/UX Premium — sur-mesure</li>
+        <li>Accompagnement Publicitaire — 10 posts + budget 1 500 DHS</li>
+      </ul>
+      <a href="https://wa.me/212600000000?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Pack%20Premium" class="pack-btn" target="_blank">Choisir ce pack</a>
+    </div>
+
+  </section>
+
+  <section class="trust">
+    <h3>Pourquoi les entreprises me font confiance ?</h3>
+    <div class="trust-grid">
+      <div class="trust-item"><span class="icon">✅</span><span>Conseils transparents, adaptés au marché marocain.</span></div>
+      <div class="trust-item"><span class="icon">✅</span><span>Sites livrés clés en main, sans que vous ayez à lever le petit doigt.</span></div>
+      <div class="trust-item"><span class="icon">✅</span><span>Vous êtes autonome ? Je vous forme à la prise en main.</span></div>
+      <div class="trust-item"><span class="icon">✅</span><span>Un seul interlocuteur pour le site, le SEO et les réseaux sociaux.</span></div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Prêt à faire décoller votre activité ?</h2>
+    <p>Laissez-moi un message avec le pack qui vous intéresse et votre secteur d'activité. Je vous envoie un devis détaillé et des exemples sous 24h.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/212600000000?text=Bonjour%2C%20je%20veux%20un%20devis" class="cta-btn primary" target="_blank">📩 Envoyer un devis</a>
+      <a href="tel:+212600000000" class="cta-btn secondary">📞 Appeler maintenant</a>
+    </div>
+    <p class="scarcity">⚠️ Offre valable pour 5 clients ce mois-ci.</p>
+  </section>
+
+  <footer class="footer">
+    © 2026 UcfZem – Freelance Web & Marketing Digital · Maroc
+  </footer>
+
+</body>
+</html>
