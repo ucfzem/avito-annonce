@@ -25,7 +25,8 @@
       --whatsapp-green: #25D366;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { overflow-x: hidden; }
     body {
       font-family: 'Inter', sans-serif;
       background: var(--bg);
@@ -866,6 +867,7 @@
       document.documentElement.lang = lang;
       document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
       document.body.dir = lang === "ar" ? "rtl" : "ltr";
+      window.scrollTo(0, 0);
 
       document.getElementById("t-badge").textContent = t.badge;
       document.getElementById("t-h1-line1").textContent = t.h1_line1;
