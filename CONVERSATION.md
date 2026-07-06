@@ -8,8 +8,7 @@ Professional Avito landing page for web services in Morocco with 3 pricing packs
 - 4 languages: FR (default), EN, ES, AR (Moroccan flag 🇲🇦)
 - RTL support for Arabic with Cairo font
 - Sticky language switcher bar with flags + initials (🇫🇷 FR, 🇬🇧 EN, 🇪🇸 ES, 🇲🇦 AR)
-- WhatsApp floating button with language-aware message
-- Email CTAs (per-pack subjects)
+- Email CTAs (per-pack subjects) — contact uniquement par email
 - "Pour qui" section (3 profiles: Starter, Conqueror, Leader)
 - Testimonials section (social proof)
 - FAQ section (accordion, 3 questions)

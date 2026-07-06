@@ -22,7 +22,6 @@
       --accent: #5b8dff;
       --green: #34d399;
       --radius: 20px;
-      --whatsapp-green: #25D366;
     }
     body.light-mode {
       --bg: #f5ede0;
@@ -336,26 +335,7 @@
       margin-top: 25px; background: rgba(212,168,67,0.1);
       padding: 10px 20px; border-radius: 30px; display: inline-block;
     }
-    .whatsapp-float {
-      position: fixed; bottom: 25px; right: 25px; z-index: 100;
-      background-color: var(--whatsapp-green); color: white;
-      width: 60px; height: 60px; border-radius: 50%;
-      text-align: center; font-size: 30px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none; transition: all 0.3s ease;
-      animation: pulse 2s infinite;
-    }
-    body[dir="rtl"] .whatsapp-float { right: auto; left: 25px; }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-    }
+
     .footer {
       text-align: center; padding: 30px 20px;
       color: var(--muted); font-size: 0.8rem;
@@ -383,8 +363,6 @@
     <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
   </div>
 
-  <a href="https://wa.me/212600000000?text=Bonjour%20UcfZem,%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20services." class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
   </a>
 
   <section class="hero fade-in">
@@ -995,14 +973,6 @@
       document.getElementById("t-p3-btn").href = `mailto:ucfzem@gmail.com?subject=${subj}%20-%20${t.p3_name}`;
       document.getElementById("t-cta-primary").href = `mailto:ucfzem@gmail.com?subject=${subj}`;
       document.getElementById("t-cta-secondary").href = `mailto:ucfzem@gmail.com?subject=${subj}`;
-
-      const waMsg = encodeURIComponent(
-        lang === "fr" ? "Bonjour UcfZem, je suis intéressé par vos services." :
-        lang === "en" ? "Hello UcfZem, I'm interested in your services." :
-        lang === "es" ? "Hola UcfZem, estoy interesado en sus servicios." :
-        "مرحبًا UcfZem، أنا مهتم بخدماتكم."
-      );
-      document.querySelector(".whatsapp-float").href = `https://wa.me/212600000000?text=${waMsg}`;
 
       document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.lang === lang);
