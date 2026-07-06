@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<!DOCTYPE html><html lang="fr" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,7 @@
   <meta name="keywords" content="site web maroc, création site vitrine, site web pas cher, avito, freelance web, SEO maroc, développement web maroc">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=Cairo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0c0c14;
@@ -24,7 +23,9 @@
       --radius: 16px;
     }
 
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
 
     body {
       font-family: 'Inter', sans-serif;
@@ -35,11 +36,58 @@
       line-height: 1.6;
     }
 
+
+    body[dir="rtl"] { font-family: 'Cairo', 'Inter', sans-serif; }
+
+
+    .lang-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 12px;
+      background: rgba(12,12,20,0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 30px;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+
+    .lang-btn .flag { font-size: 1rem; line-height: 1; }
+    .lang-btn:hover { border-color: var(--gold); color: var(--text); }
+
+
+    .lang-btn.active {
+      background: rgba(212,168,67,0.15);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+
     .hero {
       text-align: center;
       padding: 50px 20px 30px;
       position: relative;
     }
+
 
     .hero::before {
       content: '';
@@ -52,6 +100,7 @@
       background: radial-gradient(ellipse, rgba(212,168,67,0.15) 0%, transparent 70%);
       pointer-events: none;
     }
+
 
     .badge {
       display: inline-block;
@@ -67,6 +116,7 @@
       text-transform: uppercase;
     }
 
+
     h1 {
       font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(2rem, 6vw, 3.2rem);
@@ -75,7 +125,12 @@
       margin-bottom: 16px;
     }
 
+
+    body[dir="rtl"] h1 { font-family: 'Cairo', sans-serif; }
+
+
     h1 .gold { color: var(--gold); }
+
 
     .hero p {
       color: var(--muted);
@@ -83,6 +138,7 @@
       max-width: 550px;
       margin: 0 auto 24px;
     }
+
 
     .hero .cta {
       display: inline-block;
@@ -96,12 +152,15 @@
       transition: all 0.2s;
     }
 
+
     .hero .cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,168,67,0.3); }
+
 
     .section-title {
       text-align: center;
       padding: 40px 20px 10px;
     }
+
 
     .section-title h2 {
       font-family: 'Space Grotesk', sans-serif;
@@ -109,11 +168,16 @@
       font-weight: 700;
     }
 
+
+    body[dir="rtl"] .section-title h2 { font-family: 'Cairo', sans-serif; }
+
+
     .section-title p {
       color: var(--muted);
       font-size: 0.9rem;
       margin-top: 6px;
     }
+
 
     .packs {
       display: grid;
@@ -124,6 +188,7 @@
       margin: 0 auto;
     }
 
+
     .pack {
       background: var(--surface);
       border: 1.5px solid var(--border);
@@ -133,19 +198,22 @@
       transition: all 0.3s;
     }
 
+
     .pack:hover {
       border-color: var(--gold);
       transform: translateY(-4px);
       box-shadow: 0 12px 40px rgba(0,0,0,0.3);
     }
 
+
     .pack.featured {
       border-color: var(--gold);
       background: linear-gradient(135deg, var(--surface) 0%, rgba(212,168,67,0.05) 100%);
     }
 
+
     .pack.featured::before {
-      content: '⭐ PLUS POPULAIRE';
+      content: attr(data-featured-label);
       position: absolute;
       top: -12px;
       left: 50%;
@@ -157,12 +225,12 @@
       padding: 4px 14px;
       border-radius: 20px;
       letter-spacing: 0.08em;
+      white-space: nowrap;
     }
 
-    .pack-icon {
-      font-size: 2rem;
-      margin-bottom: 12px;
-    }
+
+    .pack-icon { font-size: 2rem; margin-bottom: 12px; }
+
 
     .pack-name {
       font-family: 'Space Grotesk', sans-serif;
@@ -171,11 +239,16 @@
       margin-bottom: 4px;
     }
 
+
+    body[dir="rtl"] .pack-name { font-family: 'Cairo', sans-serif; }
+
+
     .pack-tagline {
       color: var(--muted);
       font-size: 0.85rem;
       margin-bottom: 16px;
     }
+
 
     .pack-price {
       font-family: 'Space Grotesk', sans-serif;
@@ -185,22 +258,26 @@
       margin-bottom: 4px;
     }
 
+
+    .pack-price .amount {
+      unicode-bidi: isolate;
+      direction: ltr;
+      display: inline-block;
+    }
+
+
     .pack-price span {
       font-size: 0.85rem;
       font-weight: 400;
       color: var(--muted);
     }
 
-    .pack-divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 16px 0;
-    }
 
-    .pack ul {
-      list-style: none;
-      margin-bottom: 20px;
-    }
+    .pack-divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+
+
+    .pack ul { list-style: none; margin-bottom: 20px; }
+
 
     .pack li {
       padding: 6px 0;
@@ -211,12 +288,14 @@
       gap: 10px;
     }
 
+
     .pack li::before {
       content: '✅';
       font-size: 0.8rem;
       flex-shrink: 0;
       margin-top: 2px;
     }
+
 
     .pack-btn {
       display: block;
@@ -235,7 +314,12 @@
       font-family: 'Inter', sans-serif;
     }
 
+
+    body[dir="rtl"] .pack-btn { font-family: 'Cairo', sans-serif; }
+
+
     .pack-btn:hover { border-color: var(--gold); background: rgba(212,168,67,0.1); }
+
 
     .pack.featured .pack-btn {
       background: var(--gold);
@@ -243,9 +327,9 @@
       border-color: var(--gold);
     }
 
-    .pack.featured .pack-btn:hover {
-      background: var(--gold-light);
-    }
+
+    .pack.featured .pack-btn:hover { background: var(--gold-light); }
+
 
     .trust {
       max-width: 700px;
@@ -254,11 +338,16 @@
       text-align: center;
     }
 
+
     .trust h3 {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 1.2rem;
       margin-bottom: 16px;
     }
+
+
+    body[dir="rtl"] .trust h3 { font-family: 'Cairo', sans-serif; }
+
 
     .trust-grid {
       display: grid;
@@ -267,6 +356,10 @@
       text-align: left;
     }
 
+
+    body[dir="rtl"] .trust-grid { text-align: right; }
+
+
     .trust-item {
       display: flex;
       align-items: flex-start;
@@ -274,7 +367,9 @@
       font-size: 0.88rem;
     }
 
+
     .trust-item .icon { font-size: 1.2rem; flex-shrink: 0; }
+
 
     .cta-section {
       text-align: center;
@@ -283,6 +378,7 @@
       margin: 0 auto;
     }
 
+
     .cta-section h2 {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 1.6rem;
@@ -290,11 +386,16 @@
       margin-bottom: 12px;
     }
 
+
+    body[dir="rtl"] .cta-section h2 { font-family: 'Cairo', sans-serif; }
+
+
     .cta-section p {
       color: var(--muted);
       font-size: 0.95rem;
       margin-bottom: 20px;
     }
+
 
     .cta-buttons {
       display: flex;
@@ -302,6 +403,7 @@
       justify-content: center;
       flex-wrap: wrap;
     }
+
 
     .cta-btn {
       display: inline-flex;
@@ -315,20 +417,12 @@
       transition: all 0.2s;
     }
 
-    .cta-btn.primary {
-      background: var(--gold);
-      color: #1a1000;
-    }
 
+    .cta-btn.primary { background: var(--gold); color: #1a1000; }
     .cta-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,168,67,0.3); }
-
-    .cta-btn.secondary {
-      border: 1.5px solid var(--border);
-      background: var(--surface);
-      color: var(--text);
-    }
-
+    .cta-btn.secondary { border: 1.5px solid var(--border); background: var(--surface); color: var(--text); }
     .cta-btn.secondary:hover { border-color: var(--gold); }
+
 
     .scarcity {
       color: var(--gold);
@@ -336,6 +430,7 @@
       font-weight: 600;
       margin-top: 16px;
     }
+
 
     .footer {
       text-align: center;
@@ -345,110 +440,431 @@
       border-top: 1px solid var(--border);
     }
 
+
     @media (max-width: 480px) {
       .hero { padding: 30px 16px 20px; }
       .packs { padding: 16px; gap: 16px; }
       .pack { padding: 22px 18px; }
       .cta-section { padding: 30px 16px 50px; }
+      .lang-btn span.label { display: none; }
+      .lang-btn { padding: 8px 10px; }
     }
   </style>
 </head>
-<body>
+<body dir="ltr">
+
+
+  <div class="lang-bar" role="group" aria-label="Language selector">
+    <button class="lang-btn active" data-lang="fr"><span class="flag">🇫🇷</span><span class="label">FR</span></button>
+    <button class="lang-btn" data-lang="en"><span class="flag">🇬🇧</span><span class="label">EN</span></button>
+    <button class="lang-btn" data-lang="es"><span class="flag">🇪🇸</span><span class="label">ES</span></button>
+    <button class="lang-btn" data-lang="ar"><span class="flag">🇲🇦</span><span class="label">AR</span></button>
+  </div>
+
 
   <section class="hero">
-    <div class="badge">🇲🇦 Freelance Web – Maroc</div>
-    <h1>Votre Site Web Vitrine<br>qui <span class="gold">VEND</span></h1>
-    <p>Pas juste un site "en ligne" — un outil de croissance. 3 packs clés en main, adaptés au marché marocain.</p>
-    <a href="#packs" class="cta">Voir les packs →</a>
+    <div class="badge" id="t-badge"></div>
+    <h1><span id="t-h1-line1"></span><br><span id="t-h1-word"></span> <span class="gold" id="t-h1-gold"></span></h1>
+    <p id="t-hero-p"></p>
+    <a href="#packs" class="cta" id="t-cta-hero"></a>
   </section>
 
+
   <section class="section-title" id="packs">
-    <h2>Choisissez votre pack</h2>
-    <p>Pas de surprise, pas de jargon technique.</p>
+    <h2 id="t-section-h2"></h2>
+    <p id="t-section-p"></p>
   </section>
+
 
   <section class="packs">
 
     <div class="pack">
       <div class="pack-icon">🥉</div>
-      <div class="pack-name">Standard</div>
-      <div class="pack-tagline">La Vitrine Essentielle</div>
-      <div class="pack-price">2 900 DHS <span>PACK COMPLET</span></div>
+      <div class="pack-name" id="t-p1-name"></div>
+      <div class="pack-tagline" id="t-p1-tagline"></div>
+      <div class="pack-price"><bdi class="amount">2 900 DHS</bdi> <span id="t-p1-price-label"></span></div>
       <hr class="pack-divider">
       <ul>
-        <li>Site Vitrine 3 pages (Accueil, Services, Contact)</li>
-        <li>Référencement Local — visible dans votre ville sur Google</li>
-        <li>Facebook, Instagram & Fiche Google My Business optimisés</li>
-        <li>4 Emails Pro : vous@votresociete.ma</li>
-        <li>Design Responsive — impeccable sur mobile et tablette</li>
-        <li>Lancement Publicitaire — config + 2 premiers posts</li>
-        <li>Hébergement & Sécurité inclus</li>
+        <li id="t-p1-li1"></li>
+        <li id="t-p1-li2"></li>
+        <li id="t-p1-li3"></li>
+        <li id="t-p1-li4"></li>
+        <li id="t-p1-li5"></li>
+        <li id="t-p1-li6"></li>
+        <li id="t-p1-li7"></li>
       </ul>
-      <a href="mailto:ucfzem@gmail.com?subject=Demande%20de%20devis%20-%20Pack%20Standard" class="pack-btn" target="_blank">Choisir ce pack</a>
+      <a href="mailto:ucfzem@gmail.com" class="pack-btn" id="t-p1-btn" target="_blank"></a>
     </div>
 
-    <div class="pack featured">
+    <div class="pack featured" data-featured-label="⭐ PLUS POPULAIRE" id="pack-featured">
       <div class="pack-icon">🥈</div>
-      <div class="pack-name">Pro</div>
-      <div class="pack-tagline">La Machine à Leads</div>
-      <div class="pack-price">5 900 DHS <span>PACK COMPLET</span></div>
+      <div class="pack-name" id="t-p2-name"></div>
+      <div class="pack-tagline" id="t-p2-tagline"></div>
+      <div class="pack-price"><bdi class="amount">5 900 DHS</bdi> <span id="t-p2-price-label"></span></div>
       <hr class="pack-divider">
       <ul>
-        <li>Tout le Pack Standard en mieux…</li>
-        <li>Site Vitrine 8 pages — détaillez vos services</li>
-        <li>SEO National — positionnement sur mots-clés nationaux</li>
-        <li>Gestion Réseaux Sociaux — 4 publications/mois</li>
-        <li>10 Emails Pro pour toute votre équipe</li>
-        <li>Design UX avancé — parcours client fluide</li>
-        <li>Publicité Multicanal — config + 4 posts sponsorisés/mois</li>
+        <li id="t-p2-li1"></li>
+        <li id="t-p2-li2"></li>
+        <li id="t-p2-li3"></li>
+        <li id="t-p2-li4"></li>
+        <li id="t-p2-li5"></li>
+        <li id="t-p2-li6"></li>
+        <li id="t-p2-li7"></li>
       </ul>
-      <a href="mailto:ucfzem@gmail.com?subject=Demande%20de%20devis%20-%20Pack%20Pro" class="pack-btn" target="_blank">Choisir ce pack</a>
+      <a href="mailto:ucfzem@gmail.com" class="pack-btn" id="t-p2-btn" target="_blank"></a>
     </div>
 
     <div class="pack">
       <div class="pack-icon">🥇</div>
-      <div class="pack-name">Premium</div>
-      <div class="pack-tagline">L'Empire Digital</div>
-      <div class="pack-price">9 900 DHS <span>PACK COMPLET</span></div>
+      <div class="pack-name" id="t-p3-name"></div>
+      <div class="pack-tagline" id="t-p3-tagline"></div>
+      <div class="pack-price"><bdi class="amount">9 900 DHS</bdi> <span id="t-p3-price-label"></span></div>
       <hr class="pack-divider">
       <ul>
-        <li>Tout le Pack Pro, puissance 10…</li>
-        <li>Site 20+ pages — vitrine complet ou catalogue</li>
-        <li>SEO Avancé Local + National — domination complète</li>
-        <li>Gestion Réseaux Sociaux Intensifiée — 6 publications/mois</li>
-        <li>Sécurité Maximale — protection renforcée</li>
-        <li>20 Emails Pro pour équipes structurées</li>
-        <li>Design UI/UX Premium — sur-mesure</li>
-        <li>Accompagnement Publicitaire — 10 posts + budget 1 500 DHS</li>
+        <li id="t-p3-li1"></li>
+        <li id="t-p3-li2"></li>
+        <li id="t-p3-li3"></li>
+        <li id="t-p3-li4"></li>
+        <li id="t-p3-li5"></li>
+        <li id="t-p3-li6"></li>
+        <li id="t-p3-li7"></li>
+        <li id="t-p3-li8"></li>
       </ul>
-      <a href="mailto:ucfzem@gmail.com?subject=Demande%20de%20devis%20-%20Pack%20Premium" class="pack-btn" target="_blank">Choisir ce pack</a>
+      <a href="mailto:ucfzem@gmail.com" class="pack-btn" id="t-p3-btn" target="_blank"></a>
     </div>
 
   </section>
+
 
   <section class="trust">
-    <h3>Pourquoi les entreprises me font confiance ?</h3>
+    <h3 id="t-trust-h3"></h3>
     <div class="trust-grid">
-      <div class="trust-item"><span class="icon">✅</span><span>Conseils transparents, adaptés au marché marocain.</span></div>
-      <div class="trust-item"><span class="icon">✅</span><span>Sites livrés clés en main, sans que vous ayez à lever le petit doigt.</span></div>
-      <div class="trust-item"><span class="icon">✅</span><span>Vous êtes autonome ? Je vous forme à la prise en main.</span></div>
-      <div class="trust-item"><span class="icon">✅</span><span>Un seul interlocuteur pour le site, le SEO et les réseaux sociaux.</span></div>
+      <div class="trust-item"><span class="icon">✅</span><span id="t-trust-1"></span></div>
+      <div class="trust-item"><span class="icon">✅</span><span id="t-trust-2"></span></div>
+      <div class="trust-item"><span class="icon">✅</span><span id="t-trust-3"></span></div>
+      <div class="trust-item"><span class="icon">✅</span><span id="t-trust-4"></span></div>
     </div>
   </section>
+
 
   <section class="cta-section">
-    <h2>Prêt à faire décoller votre activité ?</h2>
-    <p>Laissez-moi un message avec le pack qui vous intéresse et votre secteur d'activité. Je vous envoie un devis détaillé et des exemples sous 24h.</p>
+    <h2 id="t-cta-h2"></h2>
+    <p id="t-cta-p"></p>
     <div class="cta-buttons">
-      <a href="mailto:ucfzem@gmail.com?subject=Demande%20de%20devis" class="cta-btn primary" target="_blank">📩 Envoyer un devis</a>
-      <a href="mailto:ucfzem@gmail.com?subject=Demande%20de%20devis" class="cta-btn secondary">📧 Envoyer un email</a>
+      <a href="mailto:ucfzem@gmail.com" class="cta-btn primary" id="t-cta-primary" target="_blank"></a>
+      <a href="mailto:ucfzem@gmail.com" class="cta-btn secondary" id="t-cta-secondary"></a>
     </div>
-    <p class="scarcity">⚠️ Offre valable pour 5 clients ce mois-ci.</p>
+    <p class="scarcity" id="t-scarcity"></p>
   </section>
 
-  <footer class="footer">
-    © 2026 UcfZem – Freelance Web & Marketing Digital · Maroc
-  </footer>
+
+  <footer class="footer" id="t-footer"></footer>
+
+
+  <script>
+    const translations = {
+      fr: {
+        badge: "🇲🇦 Freelance Web – Maroc",
+        h1_line1: "Votre Site Web Vitrine",
+        h1_word: "qui",
+        h1_gold: "VEND",
+        hero_p: "Pas juste un site « en ligne » — un outil de croissance. 3 packs clés en main, adaptés au marché marocain.",
+        cta_hero: "Voir les packs →",
+        section_h2: "Choisissez votre pack",
+        section_p: "Pas de surprise, pas de jargon technique.",
+        featured_label: "⭐ PLUS POPULAIRE",
+        p1_name: "Standard", p1_tagline: "La Vitrine Essentielle", p1_price_label: "PACK COMPLET",
+        p1_li1: "Site Vitrine 3 pages (Accueil, Services, Contact)",
+        p1_li2: "Référencement Local — visible dans votre ville sur Google",
+        p1_li3: "Facebook, Instagram & Fiche Google My Business optimisés",
+        p1_li4: "4 Emails Pro : vous@votresociete.ma",
+        p1_li5: "Design Responsive — impeccable sur mobile et tablette",
+        p1_li6: "Lancement Publicitaire — config + 2 premiers posts",
+        p1_li7: "Hébergement & Sécurité inclus",
+        p1_btn: "Choisir ce pack",
+        p2_name: "Pro", p2_tagline: "La Machine à Leads", p2_price_label: "PACK COMPLET",
+        p2_li1: "Tout le Pack Standard en mieux…",
+        p2_li2: "Site Vitrine 8 pages — détaillez vos services",
+        p2_li3: "SEO National — positionnement sur mots-clés nationaux",
+        p2_li4: "Gestion Réseaux Sociaux — 4 publications/mois",
+        p2_li5: "10 Emails Pro pour toute votre équipe",
+        p2_li6: "Design UX avancé — parcours client fluide",
+        p2_li7: "Publicité Multicanal — config + 4 posts sponsorisés/mois",
+        p2_btn: "Choisir ce pack",
+        p3_name: "Premium", p3_tagline: "L'Empire Digital", p3_price_label: "PACK COMPLET",
+        p3_li1: "Tout le Pack Pro, puissance 10…",
+        p3_li2: "Site 20+ pages — vitrine complet ou catalogue",
+        p3_li3: "SEO Avancé Local + National — domination complète",
+        p3_li4: "Gestion Réseaux Sociaux Intensifiée — 6 publications/mois",
+        p3_li5: "Sécurité Maximale — protection renforcée",
+        p3_li6: "20 Emails Pro pour équipes structurées",
+        p3_li7: "Design UI/UX Premium — sur-mesure",
+        p3_li8: "Accompagnement Publicitaire — 10 posts + budget 1 500 DHS",
+        p3_btn: "Choisir ce pack",
+        trust_h3: "Pourquoi les entreprises me font confiance ?",
+        trust_1: "Conseils transparents, adaptés au marché marocain.",
+        trust_2: "Sites livrés clés en main, sans que vous ayez à lever le petit doigt.",
+        trust_3: "Vous êtes autonome ? Je vous forme à la prise en main.",
+        trust_4: "Un seul interlocuteur pour le site, le SEO et les réseaux sociaux.",
+        cta_h2: "Prêt à faire décoller votre activité ?",
+        cta_p: "Laissez-moi un message avec le pack qui vous intéresse et votre secteur d'activité. Je vous envoie un devis détaillé et des exemples sous 24h.",
+        cta_primary: "📩 Envoyer un devis",
+        cta_secondary: "📧 Envoyer un email",
+        scarcity: "⚠️ Offre valable pour 5 clients ce mois-ci.",
+        footer: "© 2026 UcfZem – Freelance Web & Marketing Digital · Maroc",
+        subject: "Demande de devis"
+      },
+      en: {
+        badge: "🇲🇦 Freelance Web – Morocco",
+        h1_line1: "Your Showcase Website",
+        h1_word: "that",
+        h1_gold: "SELLS",
+        hero_p: "Not just a site \"online\" — a real growth tool. 3 turnkey packages, tailored to the Moroccan market.",
+        cta_hero: "See the packages →",
+        section_h2: "Choose your package",
+        section_p: "No surprises, no tech jargon.",
+        featured_label: "⭐ MOST POPULAR",
+        p1_name: "Standard", p1_tagline: "The Essential Showcase", p1_price_label: "FULL PACKAGE",
+        p1_li1: "3-page showcase website (Home, Services, Contact)",
+        p1_li2: "Local SEO — visible in your city on Google",
+        p1_li3: "Optimized Facebook, Instagram & Google My Business listing",
+        p1_li4: "4 Pro emails: you@yourcompany.ma",
+        p1_li5: "Responsive design — flawless on mobile and tablet",
+        p1_li6: "Ad launch — setup + first 2 posts",
+        p1_li7: "Hosting & security included",
+        p1_btn: "Choose this package",
+        p2_name: "Pro", p2_tagline: "The Lead Machine", p2_price_label: "FULL PACKAGE",
+        p2_li1: "Everything in Standard, upgraded…",
+        p2_li2: "8-page showcase website — detail your services",
+        p2_li3: "National SEO — ranking on nationwide keywords",
+        p2_li4: "Social media management — 4 posts/month",
+        p2_li5: "10 Pro emails for your whole team",
+        p2_li6: "Advanced UX design — smooth customer journey",
+        p2_li7: "Multichannel advertising — setup + 4 sponsored posts/month",
+        p2_btn: "Choose this package",
+        p3_name: "Premium", p3_tagline: "The Digital Empire", p3_price_label: "FULL PACKAGE",
+        p3_li1: "Everything in Pro, times 10…",
+        p3_li2: "20+ page site — full showcase or catalog",
+        p3_li3: "Advanced local + national SEO — total domination",
+        p3_li4: "Intensive social media management — 6 posts/month",
+        p3_li5: "Maximum security — reinforced protection",
+        p3_li6: "20 Pro emails for structured teams",
+        p3_li7: "Premium UI/UX design — fully custom",
+        p3_li8: "Advertising support — 10 posts + 1,500 DHS budget",
+        p3_btn: "Choose this package",
+        trust_h3: "Why businesses trust me",
+        trust_1: "Transparent advice, tailored to the Moroccan market.",
+        trust_2: "Turnkey sites delivered, without lifting a finger.",
+        trust_3: "Want to be independent? I'll train you to manage it yourself.",
+        trust_4: "One single point of contact for site, SEO, and social media.",
+        cta_h2: "Ready to grow your business?",
+        cta_p: "Send me a message with the package you're interested in and your industry. I'll send you a detailed quote and examples within 24h.",
+        cta_primary: "📩 Request a quote",
+        cta_secondary: "📧 Send an email",
+        scarcity: "⚠️ Offer valid for 5 clients this month.",
+        footer: "© 2026 UcfZem – Web & Digital Marketing Freelancer · Morocco",
+        subject: "Quote request"
+      },
+      es: {
+        badge: "🇲🇦 Freelance Web – Marruecos",
+        h1_line1: "Tu Sitio Web Vitrina",
+        h1_word: "que",
+        h1_gold: "VENDE",
+        hero_p: "No es solo un sitio «en línea» — es una herramienta de crecimiento real. 3 paquetes llave en mano, adaptados al mercado marroquí.",
+        cta_hero: "Ver los paquetes →",
+        section_h2: "Elige tu paquete",
+        section_p: "Sin sorpresas, sin jerga técnica.",
+        featured_label: "⭐ MÁS POPULAR",
+        p1_name: "Standard", p1_tagline: "La Vitrina Esencial", p1_price_label: "PAQUETE COMPLETO",
+        p1_li1: "Sitio vitrina de 3 páginas (Inicio, Servicios, Contacto)",
+        p1_li2: "SEO Local — visible en tu ciudad en Google",
+        p1_li3: "Facebook, Instagram y ficha de Google My Business optimizados",
+        p1_li4: "4 correos profesionales: tu@tuempresa.ma",
+        p1_li5: "Diseño responsive — perfecto en móvil y tablet",
+        p1_li6: "Lanzamiento publicitario — configuración + 2 primeras publicaciones",
+        p1_li7: "Hosting y seguridad incluidos",
+        p1_btn: "Elegir este paquete",
+        p2_name: "Pro", p2_tagline: "La Máquina de Leads", p2_price_label: "PAQUETE COMPLETO",
+        p2_li1: "Todo el Paquete Standard, mejorado…",
+        p2_li2: "Sitio vitrina de 8 páginas — detalla tus servicios",
+        p2_li3: "SEO Nacional — posicionamiento en palabras clave nacionales",
+        p2_li4: "Gestión de redes sociales — 4 publicaciones/mes",
+        p2_li5: "10 correos profesionales para todo tu equipo",
+        p2_li6: "Diseño UX avanzado — recorrido de cliente fluido",
+        p2_li7: "Publicidad multicanal — configuración + 4 publicaciones patrocinadas/mes",
+        p2_btn: "Elegir este paquete",
+        p3_name: "Premium", p3_tagline: "El Imperio Digital", p3_price_label: "PAQUETE COMPLETO",
+        p3_li1: "Todo el Paquete Pro, elevado a la 10…",
+        p3_li2: "Sitio de 20+ páginas — vitrina completa o catálogo",
+        p3_li3: "SEO avanzado local + nacional — dominio total",
+        p3_li4: "Gestión de redes sociales intensiva — 6 publicaciones/mes",
+        p3_li5: "Seguridad máxima — protección reforzada",
+        p3_li6: "20 correos profesionales para equipos estructurados",
+        p3_li7: "Diseño UI/UX Premium — a medida",
+        p3_li8: "Acompañamiento publicitario — 10 publicaciones + presupuesto de 1500 DHS",
+        p3_btn: "Elegir este paquete",
+        trust_h3: "¿Por qué las empresas confían en mí?",
+        trust_1: "Asesoramiento transparente, adaptado al mercado marroquí.",
+        trust_2: "Sitios entregados llave en mano, sin que muevas un dedo.",
+        trust_3: "¿Prefieres ser autónomo? Te enseño a gestionarlo tú mismo.",
+        trust_4: "Un único interlocutor para el sitio, el SEO y las redes sociales.",
+        cta_h2: "¿Listo para impulsar tu negocio?",
+        cta_p: "Envíame un mensaje con el paquete que te interesa y tu sector de actividad. Te enviaré un presupuesto detallado y ejemplos en 24h.",
+        cta_primary: "📩 Solicitar presupuesto",
+        cta_secondary: "📧 Enviar un correo",
+        scarcity: "⚠️ Oferta válida para 5 clientes este mes.",
+        footer: "© 2026 UcfZem – Freelance Web y Marketing Digital · Marruecos",
+        subject: "Solicitud de presupuesto"
+      },
+      ar: {
+        badge: "🇲🇦 مستقل ويب – المغرب",
+        h1_line1: "موقعك التعريفي",
+        h1_word: "الذي",
+        h1_gold: "يبيع",
+        hero_p: "ليس مجرد موقع «على الإنترنت» — بل أداة نمو حقيقية. 3 باقات جاهزة، مصممة خصيصًا للسوق المغربي.",
+        cta_hero: "شاهد الباقات ←",
+        section_h2: "اختر باقتك",
+        section_p: "بدون مفاجآت، وبدون مصطلحات تقنية معقدة.",
+        featured_label: "⭐ الأكثر طلبًا",
+        p1_name: "ستاندارد", p1_tagline: "الواجهة الأساسية", p1_price_label: "باقة كاملة",
+        p1_li1: "موقع تعريفي من 3 صفحات (الرئيسية، الخدمات، اتصل بنا)",
+        p1_li2: "تحسين محلي لمحركات البحث — الظهور في مدينتك على جوجل",
+        p1_li3: "تحسين صفحات فيسبوك وإنستغرام وملف Google My Business",
+        p1_li4: "4 عناوين بريد إلكتروني احترافية",
+        p1_li5: "تصميم متجاوب — مثالي على الهاتف والجهاز اللوحي",
+        p1_li6: "إطلاق إعلاني — إعداد + أول منشورين",
+        p1_li7: "الاستضافة والأمان مشمولان",
+        p1_btn: "اختر هذه الباقة",
+        p2_name: "برو", p2_tagline: "آلة جذب العملاء", p2_price_label: "باقة كاملة",
+        p2_li1: "كل مميزات باقة ستاندارد، مع تحسينات أكثر…",
+        p2_li2: "موقع تعريفي من 8 صفحات — فصّل خدماتك بالتفصيل",
+        p2_li3: "تحسين وطني لمحركات البحث — ترتيب على كلمات مفتاحية وطنية",
+        p2_li4: "إدارة شبكات التواصل الاجتماعي — 4 منشورات شهريًا",
+        p2_li5: "10 عناوين بريد إلكتروني احترافية لكامل فريقك",
+        p2_li6: "تصميم تجربة مستخدم متقدم — مسار عميل سلس",
+        p2_li7: "إعلانات متعددة القنوات — إعداد + 4 منشورات ممولة شهريًا",
+        p2_btn: "اختر هذه الباقة",
+        p3_name: "بريميوم", p3_tagline: "الإمبراطورية الرقمية", p3_price_label: "باقة كاملة",
+        p3_li1: "كل مميزات باقة برو، مضاعفة 10 مرات…",
+        p3_li2: "موقع من أكثر من 20 صفحة — واجهة كاملة أو كتالوج",
+        p3_li3: "تحسين محلي ووطني متقدم — هيمنة كاملة",
+        p3_li4: "إدارة مكثفة لشبكات التواصل — 6 منشورات شهريًا",
+        p3_li5: "أمان أقصى — حماية معززة",
+        p3_li6: "20 عنوان بريد إلكتروني احترافي للفرق الكبيرة",
+        p3_li7: "تصميم UI/UX بريميوم — مصمم خصيصًا لك",
+        p3_li8: "مرافقة إعلانية — 10 منشورات + ميزانية 1500 درهم",
+        p3_btn: "اختر هذه الباقة",
+        trust_h3: "لماذا تثق بي الشركات؟",
+        trust_1: "نصائح شفافة، مصممة خصيصًا للسوق المغربي.",
+        trust_2: "مواقع تُسلَّم جاهزة بالكامل، دون أن تبذل أي مجهود.",
+        trust_3: "تفضل الاستقلالية؟ سأدربك على التحكم في موقعك بنفسك.",
+        trust_4: "محاور واحد للموقع، تحسين محركات البحث، وشبكات التواصل.",
+        cta_h2: "مستعد لتطوير نشاطك؟",
+        cta_p: "أرسل لي رسالة مع الباقة التي تهمك ومجال نشاطك. سأرسل لك عرض سعر مفصل وأمثلة خلال 24 ساعة.",
+        cta_primary: "📩 طلب عرض سعر",
+        cta_secondary: "📧 إرسال بريد إلكتروني",
+        scarcity: "⚠️ العرض صالح لـ 5 عملاء فقط هذا الشهر.",
+        footer: "© 2026 UcfZem – مستقل ويب وتسويق رقمي · المغرب",
+        subject: "طلب عرض سعر"
+      }
+    };
+
+
+    function applyLang(lang) {
+      const t = translations[lang];
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+      document.body.dir = lang === "ar" ? "rtl" : "ltr";
+
+
+      document.getElementById("t-badge").textContent = t.badge;
+      document.getElementById("t-h1-line1").textContent = t.h1_line1;
+      document.getElementById("t-h1-word").textContent = t.h1_word;
+      document.getElementById("t-h1-gold").textContent = t.h1_gold;
+      document.getElementById("t-hero-p").textContent = t.hero_p;
+      document.getElementById("t-cta-hero").textContent = t.cta_hero;
+      document.getElementById("t-section-h2").textContent = t.section_h2;
+      document.getElementById("t-section-p").textContent = t.section_p;
+      document.getElementById("pack-featured").setAttribute("data-featured-label", t.featured_label);
+
+
+      document.getElementById("t-p1-name").textContent = t.p1_name;
+      document.getElementById("t-p1-tagline").textContent = t.p1_tagline;
+      document.getElementById("t-p1-price-label").textContent = t.p1_price_label;
+      document.getElementById("t-p1-li1").textContent = t.p1_li1;
+      document.getElementById("t-p1-li2").textContent = t.p1_li2;
+      document.getElementById("t-p1-li3").textContent = t.p1_li3;
+      document.getElementById("t-p1-li4").textContent = t.p1_li4;
+      document.getElementById("t-p1-li5").textContent = t.p1_li5;
+      document.getElementById("t-p1-li6").textContent = t.p1_li6;
+      document.getElementById("t-p1-li7").textContent = t.p1_li7;
+      document.getElementById("t-p1-btn").textContent = t.p1_btn;
+
+
+      document.getElementById("t-p2-name").textContent = t.p2_name;
+      document.getElementById("t-p2-tagline").textContent = t.p2_tagline;
+      document.getElementById("t-p2-price-label").textContent = t.p2_price_label;
+      document.getElementById("t-p2-li1").textContent = t.p2_li1;
+      document.getElementById("t-p2-li2").textContent = t.p2_li2;
+      document.getElementById("t-p2-li3").textContent = t.p2_li3;
+      document.getElementById("t-p2-li4").textContent = t.p2_li4;
+      document.getElementById("t-p2-li5").textContent = t.p2_li5;
+      document.getElementById("t-p2-li6").textContent = t.p2_li6;
+      document.getElementById("t-p2-li7").textContent = t.p2_li7;
+      document.getElementById("t-p2-btn").textContent = t.p2_btn;
+
+
+      document.getElementById("t-p3-name").textContent = t.p3_name;
+      document.getElementById("t-p3-tagline").textContent = t.p3_tagline;
+      document.getElementById("t-p3-price-label").textContent = t.p3_price_label;
+      document.getElementById("t-p3-li1").textContent = t.p3_li1;
+      document.getElementById("t-p3-li2").textContent = t.p3_li2;
+      document.getElementById("t-p3-li3").textContent = t.p3_li3;
+      document.getElementById("t-p3-li4").textContent = t.p3_li4;
+      document.getElementById("t-p3-li5").textContent = t.p3_li5;
+      document.getElementById("t-p3-li6").textContent = t.p3_li6;
+      document.getElementById("t-p3-li7").textContent = t.p3_li7;
+      document.getElementById("t-p3-li8").textContent = t.p3_li8;
+      document.getElementById("t-p3-btn").textContent = t.p3_btn;
+
+
+      document.getElementById("t-trust-h3").textContent = t.trust_h3;
+      document.getElementById("t-trust-1").textContent = t.trust_1;
+      document.getElementById("t-trust-2").textContent = t.trust_2;
+      document.getElementById("t-trust-3").textContent = t.trust_3;
+      document.getElementById("t-trust-4").textContent = t.trust_4;
+
+
+      document.getElementById("t-cta-h2").textContent = t.cta_h2;
+      document.getElementById("t-cta-p").textContent = t.cta_p;
+      document.getElementById("t-cta-primary").textContent = t.cta_primary;
+      document.getElementById("t-cta-secondary").textContent = t.cta_secondary;
+      document.getElementById("t-scarcity").textContent = t.scarcity;
+      document.getElementById("t-footer").textContent = t.footer;
+
+
+      const subj = encodeURIComponent(t.subject);
+      document.getElementById("t-p1-btn").href = `mailto:ucfzem@gmail.com?subject=${subj}%20-%20${t.p1_name}`;
+      document.getElementById("t-p2-btn").href = `mailto:ucfzem@gmail.com?subject=${subj}%20-%20${t.p2_name}`;
+      document.getElementById("t-p3-btn").href = `mailto:ucfzem@gmail.com?subject=${subj}%20-%20${t.p3_name}`;
+      document.getElementById("t-cta-primary").href = `mailto:ucfzem@gmail.com?subject=${subj}`;
+      document.getElementById("t-cta-secondary").href = `mailto:ucfzem@gmail.com?subject=${subj}`;
+
+
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      });
+    }
+
+
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => applyLang(btn.dataset.lang));
+    });
+
+
+    applyLang("fr");
+  </script>
+
 
 </body>
 </html>
