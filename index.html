@@ -24,6 +24,16 @@
       --radius: 20px;
       --whatsapp-green: #25D366;
     }
+    body.light-mode {
+      --bg: #f5ede0;
+      --surface: #ede3d3;
+      --surface2: #e8dcc8;
+      --border: #c4a97d;
+      --text: #3d2b1f;
+      --muted: #8b7355;
+      --gold: #b8862d;
+      --gold-light: #d4a843;
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { overflow-x: hidden; width: 100%; max-width: 100vw; }
     html { scroll-behavior: smooth; }
@@ -68,6 +78,15 @@
       border-color: var(--gold); color: var(--gold);
       box-shadow: 0 0 15px rgba(212,168,67,0.2);
     }
+    .theme-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 1.5px solid var(--border);
+      background: var(--surface); color: var(--muted);
+      font-size: 0.9rem; cursor: pointer;
+      transition: all 0.3s ease; flex-shrink: 0;
+    }
+    .theme-btn:hover { border-color: var(--gold); color: var(--gold); }
     .hero {
       text-align: center; padding: 70px 20px 50px; position: relative;
     }
@@ -361,6 +380,7 @@
     <button class="lang-btn" data-lang="en"><span class="flag">🇬🇧</span><span class="label">EN</span></button>
     <button class="lang-btn" data-lang="es"><span class="flag">🇪🇸</span><span class="label">ES</span></button>
     <button class="lang-btn" data-lang="ar"><span class="flag">🇲🇦</span><span class="label">AR</span></button>
+    <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
   </div>
 
   <a href="https://wa.me/212600000000?text=Bonjour%20UcfZem,%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20services." class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
@@ -1001,6 +1021,19 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
+    const themeToggle = document.getElementById("theme-toggle");
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      document.body.classList.add("light-mode");
+      themeToggle.textContent = "☀️";
+    }
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      const isLight = document.body.classList.contains("light-mode");
+      themeToggle.textContent = isLight ? "☀️" : "🌙";
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+    });
 
     applyLang("fr");
   </script>

@@ -16,7 +16,8 @@ Professional Avito landing page for web services in Morocco with 3 pricing packs
 - KPI indicators on Pro and Premium packs
 - Trust section + scarcity element (5 clients/month)
 - Fade-in scroll animations (IntersectionObserver)
-- Dark theme with gold accents
+- Dark theme with gold accents (default)
+- Light mode toggle (beige/brown/gold) with sun/moon icon, persists in localStorage
 - Mobile responsive
 
 ## Price format
